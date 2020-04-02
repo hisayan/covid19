@@ -69,7 +69,7 @@
 </i18n>
 
 <script>
-// import Data from '@/data/data.json'
+import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 
 export default {
@@ -77,8 +77,6 @@ export default {
     TimeStackedBarChart
   },
   data() {
-    const Data = this.$store.state.data.data
-
     // 検査実施日別状況
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],

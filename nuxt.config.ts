@@ -5,14 +5,6 @@ const autoprefixer = require('autoprefixer')
 const config: Configuration = {
   mode: 'universal',
   /*
-   ** Environments
-   */
-  env: {
-    dataUrl:
-      process.env.DATA_URL ||
-      'https://raw.githubusercontent.com/wataruoguchi/covid19_nagano_csv_to_json/master/src/.json/data.json'
-  },
-  /*
    ** Headers of the page
    */
   head: {
@@ -196,12 +188,6 @@ const config: Configuration = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  /*
-   ** Nuxt.js router
-   */
-  router: {
-    middleware: ['getData']
-  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

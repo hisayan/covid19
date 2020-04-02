@@ -71,7 +71,7 @@
 </i18n>
 
 <script>
-// import Data from '@/data/data.json'
+import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
 
@@ -80,8 +80,6 @@ export default {
     MetroBarChart
   },
   data() {
-    const Data = this.$store.state.data.data
-
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // metroGraph ツールチップ title文字列
