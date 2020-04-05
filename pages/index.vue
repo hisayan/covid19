@@ -32,7 +32,6 @@
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 // import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
@@ -60,6 +59,7 @@ export default {
     // AgencyCard
   },
   data() {
+    const Data = this.$store.state.data.data
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 死亡者数
@@ -69,7 +69,6 @@ export default {
     // )
 
     const data = {
-      Data,
       dischargesGraph,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
