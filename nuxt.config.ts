@@ -124,7 +124,6 @@ const config: Configuration = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    'nuxt-client-init-module',
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',
