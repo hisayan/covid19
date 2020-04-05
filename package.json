@@ -5,7 +5,7 @@
   "author": "有志一同",
   "private": true,
   "engines": {
-    "node": "^10.19.0"
+    "node": ">10.19.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
@@ -39,7 +39,6 @@
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
     "nuxt": "^2.11.0",
-    "nuxt-client-init-module": "^0.1.8",
     "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
     "vue-property-decorator": "^8.4.0",
