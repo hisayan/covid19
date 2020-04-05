@@ -72,6 +72,11 @@ typings/
 dist/*
 # data
 !dist/data
+data/data.json
+data/news.json
+data/soudan.json
+data/kensa.json
+data/hasseijoukyou.json
 
 # vuepress build output
 .vuepress/dist

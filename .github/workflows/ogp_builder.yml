@@ -24,6 +24,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - run: yarn install --frozen-lockfile
+      - run: yarn run cp:data
       - run: yarn run test
       - run: yarn run generate:deploy
       - run: pip install selenium
