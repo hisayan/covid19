@@ -144,6 +144,12 @@ const config: Configuration = {
    */
   axios: {},
   /*
+   ** Nuxt.js router
+   */
+  router: {
+    middleware: ['getData']
+  },
+  /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
