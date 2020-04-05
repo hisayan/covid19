@@ -37,32 +37,6 @@
               </span>
             </div>
           </div>
-          <ul class="group">
-            <li class="item mild">
-              <div class="gutter">
-                <div class="box short">
-                  <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />中等症')" />
-                  <!-- eslint-enable vue/no-v-html-->
-                  <span>
-                    <b>{{ 軽症中等症 }}</b>
-                    <span class="unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li class="item serious">
-              <div class="gutter">
-                <div class="box short">
-                  <span>{{ $t('重症') }}</span>
-                  <span>
-                    <b>{{ 重症 }}</b>
-                    <span class="unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-          </ul>
         </li>
         <li class="item deceased">
           <div class="gutter">
@@ -93,15 +67,7 @@
 
 <script>
 export default {
-  props: [
-    '検査実施人数',
-    '陽性物数',
-    '入院中',
-    '軽症中等症',
-    '重症',
-    '死亡',
-    '退院'
-  ],
+  props: ['検査実施人数', '陽性物数', '入院中', '死亡', '退院'],
   methods: {
     /** 桁数に応じて位置の調整をする */
     getAdjustX(input) {
