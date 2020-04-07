@@ -55,6 +55,13 @@ export default {
       }
     }
 
+    // 陽性患者の属性をソートする
+    patientsTable.datasets.sort(function(a, b) {
+      if (a['公表日'] > b['公表日']) return -1
+      if (a['公表日'] < b['公表日']) return 1
+      return 0
+    })
+
     const data = {
       Data,
       patientsTable,

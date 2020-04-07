@@ -1,6 +1,7 @@
 name: build check
 
 on:
+  repository_dispatch:
   pull_request:
     branches:
       - staging
@@ -24,7 +25,6 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - run: yarn install --frozen-lockfile
-      - run: yarn run cp:data
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
 

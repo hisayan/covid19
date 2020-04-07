@@ -1,75 +1,96 @@
 <template>
-  <div class="SideNavigation">
-    <header class="SideNavigation-HeadingContainer sp-flex">
+  <div ref="Side" class="SideNavigation" tabindex="-1">
+    <header class="SideNavigation-Header">
       <v-icon
-        class="SideNavigation-HeadingIcon pc-none"
+        class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="openNavi"
+        @click="$emit('openNavi', $event)"
       >
         mdi-menu
       </v-icon>
-      <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('長野県')" />
-        </div>
-        <h1 class="SideNavigation-Heading">
-          {{ $t('長野県 非公式') }}<br />{{ $t('新型コロナウイルス感染症')
-          }}<br />{{ $t('対策サイト') }}
-        </h1>
-      </nuxt-link>
+      <h1 class="SideNavigation-HeaderTitle">
+        <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+          <img
+            class="SideNavigation-HeaderLogo"
+            src="/logo.svg"
+            :alt="$t('長野県 非公式')"
+          />
+          <div class="SideNavigation-HeaderText">
+            {{ $t('長野県 非公式') }}<br />
+            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+          </div>
+        </nuxt-link>
+      </h1>
     </header>
-    <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="sp-none" :class="{ open: isNaviOpen }">
+
+    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
-        class="SideNavigation-ListContainerIcon pc-none"
+        class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="closeNavi"
+        @click="$emit('closeNavi', $event)"
       >
         mdi-close
       </v-icon>
-      <nav>
-        <v-list :flat="true">
-          <v-container
-            v-for="(item, i) in items"
-            :key="i"
-            class="SideNavigation-ListItemContainer"
-            @click="closeNavi"
+
+      <nav class="SideNavigation-Menu">
+        <div class="SideNavigation-Language">
+          <div
+            v-if="this.$i18n.locales.length > 1"
+            class="SideNavigation-Language"
           >
-            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-          </v-container>
-        </v-list>
-        <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
+            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+              {{ $t('多言語対応選択メニュー') }}
+            </label>
+            <LanguageSelector />
+          </div>
         </div>
+        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
-      <v-footer class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
+      <footer class="SideNavigation-Footer">
+        <div class="SideNavigation-Social">
           <!-- <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          > -->
+          <a
+            href="https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-line.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
           >
             <img src="/line.png" alt="LINE" />
           </a>
-          <a
+          <!-- <a
             href="https://twitter.com/tokyo_bousai"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
           >
             <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
+          </a> -->
+          <!-- <a
             href="https://www.facebook.com/tochokoho"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
           >
             <img src="/facebook.png" alt="Facebook" />
           </a> -->
           <a
+            href="https://www.youtube.com/channel/UCUdpuTxrK48m9O9dlPpo7yA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <img src="/youtube.png" alt="YouTube" />
+          </a>
+          <a
             href="https://github.com/hisayan/covid19"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
           >
             <img src="/github.png" alt="GitHub" />
           </a>
@@ -80,6 +101,7 @@
             rel="license"
             target="_blank"
             href="https://creativecommons.org/licenses/by/4.0/deed.ja"
+            class="SideNavigation-LicenseLink"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
@@ -87,18 +109,27 @@
           <br />
           {{ $t('2020 長野県非公式 COVID-19 対策サイト') }}
         </small>
-      </v-footer>
+      </footer>
     </div>
   </div>
 </template>
 
-<script>
-import ListItem from '@/components/ListItem'
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import LanguageSelector from '@/components/LanguageSelector.vue'
+import MenuList from '@/components/MenuList.vue'
 
-export default {
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
+
+export default Vue.extend({
   components: {
-    ListItem,
+    MenuList,
     LanguageSelector
   },
   props: {
@@ -108,7 +139,7 @@ export default {
     }
   },
   computed: {
-    items() {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -116,14 +147,14 @@ export default {
           link: this.localePath('/')
         },
         {
-          icon: 'covid',
+          icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link:
             'https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-soudan.html#soudan',
           divider: true
         },
         {
-          icon: 'parent',
+          icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent')
         },
@@ -160,132 +191,209 @@ export default {
         },
         {
           title: this.$t('長野県公式ホームページ'),
-          link: 'https://www.pref.nagano.lg.jp/',
-          divider: true
+          link: 'https://www.pref.nagano.lg.jp/'
+          // divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
+    // isClass() {
+    //   return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    // }
+  },
+  watch: {
+    $route: 'handleChageRoute'
   },
   methods: {
-    openNavi() {
-      this.$emit('openNavi')
-    },
-    closeNavi() {
-      this.$emit('closeNavi')
+    handleChageRoute() {
+      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
+      return this.$nextTick().then(() => {
+        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        if ($Side) {
+          $Side.focus()
+        }
+      })
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  &-HeadingContainer {
-    padding: 1.25em 0 1.25em 1.25em;
-    align-items: center;
-    @include lessThan($small) {
-      padding: 7px 0 7px 20px;
-    }
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
-  &-HeadingIcon {
-    margin-right: 16px;
+  &:focus {
+    outline: 1px dotted $gray-3;
   }
-  &-HeadingLink {
-    @include lessThan($small) {
-      display: flex;
-      align-items: center;
-    }
-    text-decoration: none;
-  }
-  &-ListContainerIcon {
-    margin: 24px 16px 0;
-  }
-  &-ListItemContainer {
-    padding: 2px 20px;
-  }
-  &-Logo {
-    margin: 20px 16px 0 0;
-    width: 110px;
-    @include lessThan($small) {
-      margin-top: 0;
-    }
-  }
-  &-Heading {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #898989;
-    padding: 0.5em 0;
-    text-decoration: none;
-    @include lessThan($small) {
-      margin-top: 0;
-    }
-  }
-  &-HeadingDivider {
-    margin: 0px 20px 4px;
-    @include lessThan($small) {
-      display: none;
-    }
-  }
-  &-Divider {
-    margin: 12px 0;
-  }
-  &-LanguageMenu {
-    padding: 0 20px;
-    background: #fff;
-  }
-  &-Footer {
+}
+.SideNavigation-Header {
+  height: 64px;
+  padding-left: 52px;
+  @include largerThan($small) {
+    height: auto;
     padding: 20px;
-    background-color: $white;
   }
-  &-SocialLinkContainer {
+  @include lessThan($small) {
     display: flex;
-    & a:not(:last-of-type) {
-      margin-right: 10px;
-    }
-    & img {
-      width: 30px;
-    }
   }
-  &-Copyright {
-    display: block;
+  @include lessThan($tiny) {
+    padding-left: 44px;
+  }
+}
+.SideNavigation-OpenIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
+    padding: 20px 10px;
+  }
+  @include largerThan($small) {
+    display: none;
+  }
+}
+.SideNavigation-CloseIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
+    padding: 20px 10px;
+  }
+  @include largerThan($small) {
+    display: none;
+  }
+}
+.SideNavigation-HeaderTitle {
+  width: 100%;
+  font-size: 13px;
+  color: #707070;
+  @include largerThan($small) {
+    margin: 0;
     margin-top: 10px;
-    font-size: 8px;
-    line-height: 1.2;
-    color: $gray-1;
+  }
+}
+.SideNavigation-HeaderLink {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  @include lessThan($small) {
+    height: 64px;
+  }
+  @include lessThan($tiny) {
+    justify-content: space-between;
+  }
+  &:link,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
     font-weight: bold;
   }
+  &:focus {
+    outline: dotted $gray-3 1px;
+  }
+  @include largerThan($small) {
+    display: block;
+    padding: 15px 0;
+  }
 }
-.open {
+.SideNavigation-HeaderLogo {
+  width: 128px;
+  @include lessThan($tiny) {
+    width: 100px;
+  }
+}
+.SideNavigation-HeaderText {
+  margin: 10px 0 0 0;
   @include lessThan($small) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: block !important;
-    width: 100%;
-    z-index: z-index-of(opened-side-navigation);
-    background-color: $white;
-    height: 100%;
-    overflow-y: scroll;
+    margin: 0 0 0 10px;
+  }
+  @include lessThan($tiny) {
+    margin: 0;
   }
 }
-@include largerThan($small) {
-  .pc-none {
+.SideNavigation-Body {
+  padding: 0 20px 20px;
+  @include lessThan($small) {
     display: none;
+    padding: 0 36px 36px;
+    &.-opened {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: block !important;
+      width: 100%;
+      z-index: z-index-of(opened-side-navigation);
+      background-color: $white;
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
-@include lessThan($small) {
-  .sp-flex {
-    display: flex;
+.SideNavigation-Menu {
+  @include lessThan($small) {
+    padding-top: 50px;
   }
-  .sp-none {
-    display: none;
+}
+.SideNavigation-LanguageLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+.SideNavigation-Footer {
+  padding-top: 20px;
+}
+.SideNavigation-Social {
+  display: flex;
+}
+.SideNavigation-SocialLink {
+  border: 1px dotted transparent;
+  border-radius: 30px;
+  color: $gray-3;
+  &:link,
+  &:hover,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
+    outline: none;
+  }
+  & + & {
+    margin-left: 10px;
+  }
+  img {
+    width: 30px;
+  }
+}
+.SideNavigation-Copyright {
+  display: block;
+  margin-top: 15px;
+  color: $gray-1;
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: bold;
+}
+.SideNavigation-LicenseLink {
+  &:focus {
+    outline: 1px dotted $gray-3;
   }
 }
 </style>

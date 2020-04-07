@@ -19,11 +19,11 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
-      <!-- <tested-number-card />
-      <telephone-advisory-reports-number-card />
+      <tested-number-card />
+      <!-- <telephone-advisory-reports-number-card /> -->
       <consultation-desk-reports-number-card />
-      <metro-card />
-      <agency-card /> -->
+      <!-- <metro-card /> -->
+      <!-- <agency-card /> -->
     </v-row>
   </div>
 </template>
@@ -39,9 +39,9 @@ import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-// import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
 // import AgencyCard from '@/components/cards/AgencyCard.vue'
 
@@ -52,10 +52,10 @@ export default {
     StaticInfo,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard
-    // TestedNumberCard,
+    ConfirmedCasesAttributesCard,
+    TestedNumberCard,
     // TelephoneAdvisoryReportsNumberCard,
-    // ConsultationDeskReportsNumberCard,
+    ConsultationDeskReportsNumberCard
     // MetroCard,
     // AgencyCard
   },

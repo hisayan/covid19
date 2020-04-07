@@ -1,6 +1,7 @@
 name: development deploy
 
 on:
+  repository_dispatch:
   push:
     branches:
       - development
@@ -25,7 +26,6 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - run: yarn install --frozen-lockfile
-      - run: yarn run cp:data
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"

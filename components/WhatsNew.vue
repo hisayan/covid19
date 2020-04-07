@@ -62,7 +62,7 @@ export default {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
-  height: 18em;
+  max-height: 18em;
   overflow: auto;
 }
 
