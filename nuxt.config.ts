@@ -31,7 +31,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stop-covid19-nagano.netlify.com'
+        content: 'https://nagano.stopcovid19.jp/'
       },
       {
         hid: 'og:title',
@@ -74,7 +74,7 @@ const config: Configuration = {
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '1160768984265556'
+        content: '1164974167177742'
       }
     ],
     link: [

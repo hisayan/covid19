@@ -154,6 +154,11 @@ export default Vue.extend({
           divider: true
         },
         {
+          // icon: 'mdi-link',
+          title: this.$t('関連リンク集'),
+          link: this.localePath('/link')
+        },
+        {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent')

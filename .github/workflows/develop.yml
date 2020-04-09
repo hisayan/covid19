@@ -2,6 +2,7 @@ name: development deploy
 
 on:
   repository_dispatch:
+    types: [build_application]
   push:
     branches:
       - development

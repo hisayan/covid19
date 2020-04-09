@@ -9,6 +9,7 @@
       :items="inspectionsItems"
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
+      :url="'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'"
     />
     <!-- 件.tested = 検査数 -->
   </v-col>

@@ -7,6 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
+      :url="'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'"
     />
   </v-col>
 </template>

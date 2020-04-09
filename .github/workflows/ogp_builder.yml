@@ -2,6 +2,7 @@ name: OGP Builder
 
 on:
   repository_dispatch:
+    types: [build_application]
   push:
     branches:
       - staging

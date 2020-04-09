@@ -15,6 +15,11 @@
       :btn-text="$t('24時間対応')"
       target="_blank"
     />
+    <static-info
+      class="mb-4"
+      :url="`/link`"
+      :text="'リンク集（長野県公式ホームページ・政府公式ホームページ・その他）'"
+    />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />

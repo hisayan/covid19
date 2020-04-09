@@ -1,0 +1,120 @@
+[
+  {
+    "title": "長野県 公式",
+    "items": [
+      {
+        "url": "https://www.pref.nagano.lg.jp/",
+        "text": "長野県 公式ホームページ トップ"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona.html",
+        "text": "新型コロナウイルス感染症対策について"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-doko.html",
+        "text": "新型コロナウイルスの動向"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-onegai.html",
+        "text": "感染拡大防止のためのお願い"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-soudan.html",
+        "text": "長野県の相談窓口"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-naganoken-taiou.html",
+        "text": "長野県の対応状況"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-kisotisiki.html",
+        "text": "新型コロナウイルスの基礎知識",
+        "divider": true
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/influ/mask.html",
+        "text": "正しいマスクの着用方法"
+      },
+      {
+        "url": "https://www.pref.nagano.lg.jp/kyoiku/kyoiku/corona.html",
+        "text": "新型コロナウイルス感染症対策について（教育委員会）"
+      }
+    ]
+  },
+  {
+    "title": "政府/官公庁",
+    "items": [
+      {
+        "url": "https://www.kantei.go.jp/",
+        "text": "首相官邸"
+      },
+      {
+        "url": "https://www.kantei.go.jp/jp/headline/kansensho/coronavirus.html",
+        "text": "首相官邸 新型コロナウイルスへの備え",
+        "divider": true
+      },
+      {
+        "url": "https://www.mhlw.go.jp/index.html",
+        "text": "厚生労働省"
+      },
+      {
+        "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000164708_00001.html",
+        "text": "厚生労働省 新型コロナウイルス感染症について"
+      },
+      {
+        "url": "https://www.meti.go.jp/",
+        "text": "経済産業省"
+      },
+      {
+        "url": "https://www.meti.go.jp/covid-19/index.html",
+        "text": "経済産業省 新型コロナウイルス感染症関連"
+      }
+    ]
+  },
+  {
+    "title": "COVID-19 関連サイト",
+    "items": [
+      {
+        "url": "https://vdata.nikkei.com/newsgraphics/coronavirus-world-map/",
+        "text": "新型コロナウイルス感染 世界マップ（日経新聞）"
+      },
+      {
+        "url": "https://toyokeizai.net/sp/visual/tko/covid19/",
+        "text": "新型コロナウイルス 国内感染の状況（東洋経済オンライン）"
+      },
+      {
+        "url": "https://stopcovid19.metro.tokyo.lg.jp/",
+        "text": "東京都 新型コロナウイルス感染症 対策サイト（東京都 公式）"
+      },
+      {
+        "url": "https://github.com/tokyo-metropolitan-gov/covid19/blob/development/FORKED_SITES.md",
+        "text": "各都道府県 新型コロナウイルス感染症 対策サイト一覧（東京都 公式）"
+      },
+      {
+        "url": "https://www.stopcovid19.jp/",
+        "text": "新型コロナウイルス対策ダッシュボード"
+      },
+      {
+        "url": "https://vscovid19.code4japan.org/",
+        "text": "民間支援情報ナビ"
+      },
+      {
+        "url": "https://note.stopcovid19.jp/",
+        "text": "新型コロナウイルス感染症に関する専門家有志の会"
+      }
+    ]
+  },
+  {
+    "title": "COVID-19 長野県非公式 運営グループ",
+    "items": [
+      {
+        "url": "https://github.com/Stop-COVID19-Nagano/covid19",
+        "text": "長野県 非公式 新型コロナウイルス対策サイト（開発者向け）"
+      },
+      {
+        "url": "https://www.facebook.com/groups/155315052273089",
+        "text": "長野県版 COVID-19 対策サイト をつくろう（Facebook Group）"
+      }
+    ]
+  }
+]

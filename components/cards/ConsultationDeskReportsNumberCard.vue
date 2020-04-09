@@ -7,7 +7,7 @@
       :chart-data="querentsGraph"
       :date="Data.contacts.date"
       :unit="$t('件.reports')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
+      :url="'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'"
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
