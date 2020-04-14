@@ -1,10 +1,10 @@
 <template>
   <div class="Link">
     <h2 class="Link-Heading">
-      新型コロナウイルス関連リンク
+      {{ $t('新型コロナウイルス関連リンク集') }}
     </h2>
     <div v-for="(list, key) in urlList" :key="key">
-      <TextCard :title="list.title">
+      <TextCard :title="$t('link.title.' + list.title)">
         <ul class="Link-List">
           <li
             v-for="(item, i) in list.items"
@@ -18,7 +18,7 @@
               rel="noopener"
             >
               <span class="Link-List-item-anchor-link">
-                {{ item.text }}
+                {{ $t('link.' + item.text) }}
                 <v-icon
                   v-if="!isInternalLink(item.url)"
                   class="Link-List-item-ExternalLinkIcon"

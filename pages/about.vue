@@ -16,6 +16,33 @@
         )
       }}
     </TextCard>
+    <TextCard :title="$t('当サイトに関するお問い合わせ')">
+      {{
+        $t(
+          '当サイト運営に関しましてのご意見・ご要望、その他バグ報告などは全てGitHub Issueにて管理しております。'
+        )
+      }}
+      <br />
+      {{
+        $t(
+          'なお、動作環境や免責事項につきましては、本ページにて記載させていただいております。'
+        )
+      }}
+      <br />
+      <br />
+      <a
+        href="https://github.com/Stop-COVID19-Nagano/covid19/issues"
+        target="_blank"
+        class="About-anchor"
+      >
+        <span class="About-anchor-link">
+          {{ $t('お問い合わせ等はこちら') }}
+          <v-icon class="About-ExternalLinkIcon" size="12">
+            mdi-open-in-new
+          </v-icon>
+        </span>
+      </a>
+    </TextCard>
     <TextCard :title="$t('ブラウザ環境について')">
       {{ $t('当サイトは以下の環境でご覧いただくことを推奨いたします。') }}<br />
       <br />
@@ -76,6 +103,26 @@
       }}<br />
       {{
         $t(
+          'Google Analyticsでは、当サイトが発行するクッキー (Cookie) 等を利用して、Webサイトの利用データ（アクセス状況、トラフィック、閲覧環境、IPアドレスなど）を収集しております。クッキーの利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
+        )
+      }}<br />
+      {{
+        $t(
+          '取得したデータはWebサイト利用状況を分析しサービスの改善につなげるため、またはサイト運営者へのレポートを作成するため、その他のサービスの提供に関わる目的に限り、これを使用します。（サイト運営者へのレポートでは、クッキーはブラウザ単位で本サイトのユーザー数をカウントするため、IPアドレスはGoogle Analyticsの分析機能を通じてアクセス元の地域分布（国、州・都道府県、都市）を把握するために利用されています。）'
+        )
+      }}<br />
+      {{
+        $t(
+          'Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。'
+        )
+      }}<br />
+      <!-- {{
+        $t(
+          '当サイトでは、サービス向上やサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。'
+        )
+      }}<br />
+      {{
+        $t(
           'Google Analyticsは、当サイトが発行するクッキー (Cookie) を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー (Cookie) の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
         )
       }}<br />
@@ -88,11 +135,15 @@
         $t(
           'Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。'
         )
-      }}<br />
+      }}<br /> -->
       <ul>
         <li>
           <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
+            :href="
+              $t(
+                'https://marketingplatform.google.com/about/analytics/terms/jp/'
+              )
+            "
             target="_blank"
             rel="noopener"
           >
@@ -101,7 +152,7 @@
         </li>
         <li>
           <a
-            href="https://policies.google.com/privacy?hl=ja"
+            :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
             rel="noopener"
           >
@@ -110,7 +161,9 @@
         </li>
         <li>
           <a
-            href="https://support.google.com/analytics/answer/6004245"
+            :href="
+              $t('https://support.google.com/analytics/answer/6004245?hl=ja')
+            "
             target="_blank"
             rel="noopener"
           >
@@ -118,6 +171,20 @@
           </a>
         </li>
       </ul>
+      <i18n
+        tag="p"
+        path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
+      >
+        <template v-slot:addon>
+          <a
+            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ $t('測定を無効にするブラウザ アドオン') }}
+          </a>
+        </template>
+      </i18n>
     </TextCard>
     <TextCard :title="$t('免責事項')">
       {{
@@ -161,7 +228,7 @@
       }}
       <i18n path="詳しくは、{githubRepo}をご確認ください。">
         <a
-          href="https://github.com/hisayan/covid19"
+          href="https://github.com/Stop-COVID19-Nagano/covid19"
           target="_blank"
           rel="noopener"
           place="githubRepo"
@@ -207,6 +274,28 @@ export default {
     // このようなセレクタ指定としています
     list-style: none;
     padding: 12px 0;
+  }
+  &-anchor {
+    display: flex;
+    text-decoration: none;
+    font-size: 14px;
+
+    @include lessThan($medium) {
+      flex-wrap: wrap;
+    }
+
+    &-link {
+      flex: 0 1 auto;
+      @include text-link();
+      @include lessThan($medium) {
+        padding-left: 0px;
+      }
+    }
+
+    &-ExternalLinkIcon {
+      margin-left: 2px;
+      color: $gray-3 !important;
+    }
   }
 }
 </style>

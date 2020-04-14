@@ -43,7 +43,7 @@ export default {
           ].join('<br />')
         },
         {
-          title: `3. ${this.$t('その他')}`,
+          title: `3. ${this.$t('その他.parent')}`,
           body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
         }
       ]
