@@ -82,7 +82,7 @@ export default {
         break
       case 'number-of-reports-to-covid19-consultation-desk':
         title = this.$t('新型コロナ受診相談窓口相談件数')
-        updatedAt = Data.querents.date
+        updatedAt = Data.contacts.date
         break
       case 'predicted-number-of-toei-subway-passengers':
         title = this.$t('都営地下鉄の利用者数の推移')
