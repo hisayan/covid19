@@ -26,7 +26,7 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-import { single as color } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
@@ -106,6 +106,7 @@ export default {
       }
     },
     displayData() {
+      const style = getGraphSeriesStyle(1)[0]
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
@@ -117,8 +118,9 @@ export default {
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: color,
-              borderWidth: 0
+              backgroundColor: style.fillColor,
+              borderColor: style.strokeColor,
+              borderWidth: 1
             }
           ]
         }
@@ -133,8 +135,9 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: color,
-            borderWidth: 0
+            backgroundColor: style.fillColor,
+            borderColor: style.strokeColor,
+            borderWidth: 1
           }
         ]
       }

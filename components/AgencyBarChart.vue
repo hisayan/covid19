@@ -28,6 +28,7 @@
 <script>
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 export default {
   components: { DataView },
@@ -75,14 +76,16 @@ export default {
   },
   computed: {
     displayData() {
-      const colors = ['#008b41', '#63c765', '#a6e29f']
+      const graphSeries = getGraphSeriesStyle(this.chartData.datasets.length)
       return {
         labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.agencies[index],
             data: item.data,
-            backgroundColor: colors[index]
+            backgroundColor: graphSeries[index].fillColor,
+            borderColor: graphSeries[index].strokeColor,
+            borderWidth: 1
           }
         })
       }

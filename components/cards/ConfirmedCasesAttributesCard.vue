@@ -48,11 +48,11 @@ export default {
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
 
-      if (row['年代'] === '10歳未満') {
-        row['年代'] = this.$t('10歳未満')
-      } else {
-        const age = row['年代'].substring(0, 2)
+      if (row['年代'].substr(-1, 1) === '代') {
+        const age = row['年代'].substr(0, 2)
         row['年代'] = this.$t('{age}代', { age })
+      } else {
+        row['年代'] = this.$t(row['年代'])
       }
     }
 

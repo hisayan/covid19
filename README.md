@@ -8,6 +8,21 @@
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
+## コミュニケーションへの参加方法
+
+### 長野県版
+
+本プロジェクトのメインのコミュニケーションの場
+
+* Facebook グループの[長野県版 COVID-19 対策サイト をつくろう](https://www.facebook.com/groups/155315052273089/)にご参加ください
+* Facebook のアカウントを持っていない場合、`新規アカウントを作成 `から登録もしくは、[Facebookに登録](https://ja-jp.facebook.com/r.php)から登録してください
+
+### 地域版
+
+東京都以外の全国地域のプロジェクトについてのコミュニケーションの場
+* Code for Japan の Slack アカウントを持っていない場合、[こちらから登録](https://cfjslackin.herokuapp.com/)してください
+* `#stopcovid19jp` チャンネルにご参加ください。
+
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
