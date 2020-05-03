@@ -4,7 +4,7 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      {{ $t('最新のお知らせ') }}
+      {{ $t('重要なお知らせ') }}
     </h2>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
