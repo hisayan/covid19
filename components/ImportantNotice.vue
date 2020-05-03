@@ -1,30 +1,30 @@
 <template>
-  <div class="WhatsNew">
-    <h2 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
+  <div class="ImportantNotice">
+    <h2 class="ImportantNotice-heading">
+      <v-icon size="24" class="ImportantNotice-heading-icon">
         mdi-information
       </v-icon>
-      {{ $t('最新のお知らせ') }}
+      {{ $t('重要なお知らせ') }}
     </h2>
-    <ul class="WhatsNew-list">
-      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
+    <ul class="ImportantNotice-list">
+      <li v-for="(item, i) in items" :key="i" class="ImportantNotice-list-item">
         <a
-          class="WhatsNew-list-item-anchor"
+          class="ImportantNotice-list-item-anchor"
           :href="item.url"
           target="_blank"
           rel="noopener"
         >
           <time
-            class="WhatsNew-list-item-anchor-time px-2"
+            class="ImportantNotice-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
           >
             {{ item.date }}
           </time>
-          <span class="WhatsNew-list-item-anchor-link">
+          <span class="ImportantNotice-list-item-anchor-link">
             {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
-              class="WhatsNew-item-ExternalLinkIcon"
+              class="ImportantNotice-item-ExternalLinkIcon"
               size="12"
             >
               mdi-open-in-new
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss">
-.WhatsNew {
+.ImportantNotice {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
@@ -66,7 +66,7 @@ export default {
   overflow: auto;
 }
 
-.WhatsNew-heading {
+.ImportantNotice-heading {
   display: flex;
   align-items: center;
   @include card-h2();
@@ -79,7 +79,7 @@ export default {
   }
 }
 
-.WhatsNew .WhatsNew-list {
+.ImportantNotice .ImportantNotice-list {
   padding-left: 0px;
   list-style-type: none;
 
