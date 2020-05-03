@@ -5,7 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new class="mb-4" :items="newsItems" />
+    <important-notice class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
       :url="
@@ -35,7 +35,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
+import ImportantNotice from '@/components/ImportantNotice.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
@@ -53,7 +53,7 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 export default {
   components: {
     PageHeader,
-    WhatsNew,
+    ImportantNotice,
     StaticInfo,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
