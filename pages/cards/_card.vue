@@ -101,7 +101,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://fervent-payne-0ee49a.netlify.app/'
+    const url = 'https://nagano.stopcovid19.jp/'
     const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
