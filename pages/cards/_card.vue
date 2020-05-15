@@ -101,7 +101,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://fervent-payne-0ee49a.netlify.app' //'https://nagano.stopcovid19.jp'
+    const url = 'https://nagano.stopcovid19.jp'
     const timestamp = new Date().getTime()
     const ogpImage = `${url}/ogp-${this.$route.params.card}.png?t=${timestamp}`
     const date = this.updatedAt
