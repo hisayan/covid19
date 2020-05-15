@@ -105,7 +105,7 @@ export default {
     const timestamp = new Date().getTime()
     const ogpImage = `{url}/ogp-${this.$route.params.card}.png{timestamp}`
     const description =
-      `${$t('{date} 更新', this.updatedAt)} | ${$t('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志が開設したものです。')}`
+      `${this.$t('{date} 更新', this.updatedAt)} | ${this.$t('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志が開設したものです。')}`
     return {
       title: this.title,
       meta: [
@@ -117,7 +117,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `this.title | ${$t('長野県 非公式')}  ${$t('新型コロナウイルス感染症')} + ${$t('対策サイト')}`
+          content: `this.title | ${this.$t('長野県 非公式')}  ${this.$t('新型コロナウイルス感染症')} + ${this.$t('対策サイト')}`
         },
         {
           hid: 'description',
