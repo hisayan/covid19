@@ -101,13 +101,13 @@ export default {
     return data
   },
   head() {
-    const url = 'https://nagano.stopcovid19.jp/'
-    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
-    const description =
-      this.updatedAt +
-      ' 更新 | ' +
-      '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
-
+    const url = 'https://nagano.stopcovid19.jp'
+    const timestamp = new Date().getTime()
+    const ogpImage = `${url}/ogp-${this.$route.params.card}.png?t=${timestamp}`
+    const date = this.updatedAt
+    const description = `${this.$t('{date} 更新', { date })} | ${this.$t(
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志が開設したものです。'
+    )}`
     return {
       title: this.title,
       meta: [
@@ -119,7 +119,9 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
+          content: `${this.title} | ${this.$t('長野県 非公式')}  ${this.$t(
+            '新型コロナウイルス感染症'
+          )} + ${this.$t('対策サイト')}`
         },
         {
           hid: 'description',
