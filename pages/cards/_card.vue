@@ -103,7 +103,7 @@ export default {
   head() {
     const url = 'https://nagano.stopcovid19.jp'
     const timestamp = new Date().getTime()
-    const ogpImage = `${url}/ogp-${this.$route.params.card}.png?t=${timestamp}`
+    const ogpImage = `${url}/ogp/ogp-${this.$route.params.card}.png?t=${timestamp}`
     const date = this.updatedAt
     const description = `${this.$t('{date} 更新', { date })} | ${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志が開設したものです。'
