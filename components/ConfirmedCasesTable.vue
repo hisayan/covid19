@@ -38,17 +38,6 @@
             </div>
           </div>
         </li>
-        <li class="item deceased">
-          <div class="gutter">
-            <div class="box">
-              <span>{{ $t('死亡') }}</span>
-              <span>
-                <b>{{ 死亡 }}</b>
-                <span class="unit">{{ $t('人') }}</span>
-              </span>
-            </div>
-          </div>
-        </li>
         <li class="item recovered">
           <div class="gutter">
             <div class="box">
@@ -81,10 +70,6 @@ export default {
       type: Number,
       required: true
     },
-    死亡: {
-      type: Number,
-      required: true
-    },
     退院: {
       type: Number,
       required: true
@@ -113,8 +98,8 @@ export default {
       }
     },
     /** グラフ内容がわかる支援技術用テキストの中身を取得する **/
-    ariaLabel(inspected, positive, hospitalized, deceased, discharged) {
-      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
+    ariaLabel(inspected, positive, hospitalized, discharged) {
+      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人です。退院は${discharged}人です。`
       return ariaLabel
     }
   }
@@ -178,7 +163,7 @@ export default {
 
 // 検査
 .item.checked {
-  width: calc(100% / 5);
+  width: calc(100% / 4);
   > .gutter > .box {
     border-color: $gray-1;
     color: $gray-1;
@@ -188,24 +173,20 @@ export default {
 .item.positive {
   display: flex;
   justify-content: space-between;
-  width: calc(100% / 5 * 4);
+  width: calc(100% / 4 * 3);
   > .group {
-    width: calc(100% / 4 * 3);
+    width: calc(100% / 3 * 2);
   }
 }
 // 入院
 .item.in-hospital {
   display: flex;
   justify-content: space-between;
-  width: calc(100% / 3);
-}
-// 死亡
-.item.deceased {
-  width: calc(100% / 3);
+  width: calc(100% / 2);
 }
 // 退院
 .item.recovered {
-  width: calc(100% / 3);
+  width: calc(100% / 2);
 }
 
 .item.positive > .gutter > .box::before,
@@ -232,7 +213,7 @@ export default {
   border-left: none;
 }
 .item.recovered > .gutter > .box::before {
-  width: 320%;
+  width: 200%;
 }
 
 @function px2vw($px, $vw) {
