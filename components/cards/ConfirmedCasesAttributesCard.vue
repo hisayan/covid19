@@ -26,8 +26,7 @@ export default {
   data() {
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
-    const dateAsOf = dayjs(Data.patients.date).format('MM/DD')
-
+    const dateAsOf = dayjs(patientsTable.datasets[0]['確定日']).format('MM/DD')
     const sumInfoOfPatients = {
       lText: patientsTable.datasets.length.toLocaleString(),
       sText: this.$t('{date}の累計', {
