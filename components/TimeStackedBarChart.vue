@@ -149,9 +149,9 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelTokyo = this.$t('県内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+              const labelPositive = this.$t('陽性')
+              const labelNegative = this.$t('陰性')
+              const labelArray = [labelPositive, labelNegative]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
