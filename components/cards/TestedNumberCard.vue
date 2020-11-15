@@ -16,7 +16,10 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 import Data from '@/data/data.json'
+import testCount from '@/data/test_count.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 
 export default {
@@ -26,14 +29,13 @@ export default {
   data() {
     // 検査実施日別状況
     const inspectionsGraph = [
-      Data.inspections_summary.data['県内'],
-      Data.inspections_summary.data['その他']
+      testCount.map(data => data.positiveNum),
+      testCount.map(data => data.negativeNum)
     ]
-    const inspectionsItems = [
-      this.$t('県内発生（疑い例・接触者調査）'),
-      this.$t('その他（チャーター便・クルーズ船）')
-    ]
-    const inspectionsLabels = Data.inspections_summary.data.labels
+    const inspectionsItems = [this.$t('陽性'), this.$t('陰性')]
+    const inspectionsLabels = testCount.map(data => {
+      return dayjs(data.YMD).format('MM/DD')
+    })
 
     const data = {
       Data,
