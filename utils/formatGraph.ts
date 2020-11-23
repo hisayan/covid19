@@ -1,9 +1,11 @@
+import { convertDateToISO8601Format } from '@/utils/formatDate'
+
 type DataType = {
-  日付: Date
+  日付: string
   小計: number
 }
 
-type GraphDataType = {
+export type GraphDataType = {
   label: string
   transition: number
   cumulative: number
@@ -21,12 +23,11 @@ export default (data: DataType[]) => {
   data
     .filter(d => new Date(d['日付']) < today)
     .forEach(d => {
-      const date = new Date(d['日付'])
       const subTotal = d['小計']
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
-          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          label: convertDateToISO8601Format(d['日付']),
           transition: subTotal,
           cumulative: patSum
         })
