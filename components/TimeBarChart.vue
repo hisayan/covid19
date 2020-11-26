@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:attentionNote>
       <slot name="attentionNote" />
     </template>

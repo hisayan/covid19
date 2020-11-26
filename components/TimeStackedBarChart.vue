@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -26,7 +27,8 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{ { item }}
+          >
+            {{ item }}
           </span>
         </button>
       </li>
@@ -141,6 +143,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -209,6 +212,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
+    url: {
+      type: String,
+      default: ''
+    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -230,13 +237,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', { date })}`,
-          unit: this.unit
+          unit: this.unit,
+          lastd: this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear'),
+          date
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
         sText: `${this.$t('{date}の合計', { date })}`,
-        unit: this.unit
+        unit: this.unit,
+        lastd: getDayjsObject(lastDay).toDate(),
+        date
       }
     },
     displayData() {

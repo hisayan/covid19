@@ -33,10 +33,9 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const inspectionsGraph = [
-      testCount.map(data => data.positiveNum),
-      testCount.map(data => data.negativeNum)
-    ]
+    const positive = testCount.map(data => data.positiveNum)
+    const negative = testCount.map(data => data.negativeNum)
+    const inspectionsGraph = [positive, negative]
     const inspectionsItems = [this.$t('陽性'), this.$t('陰性')]
     const inspectionsDataItems = [this.$t('陽性'), this.$t('陰性')]
     const inspectionsLabels = testCount.map(data => {
