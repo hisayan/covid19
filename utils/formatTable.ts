@@ -43,7 +43,7 @@ export default (data: DataType[]) => {
   data.forEach(d => {
     const TableRow: TableDataType = {
       確定日:
-        convertDateToSimpleFormat(d['リリース日'].toLocaleString()) ?? '不明', // dayjs(d['リリース日']).format('YYYY/MM/DD') ?? '不明',
+        convertDateToSimpleFormat(d['リリース日'].toLocaleString()) ?? '不明',
       居住地: d['居住地'] ?? '不明',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
