@@ -183,7 +183,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         displayData: this.displayData,
         dataIndex: 1
       })
-      const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
+      const formattedLastDay = this.$d(lastDay, 'date')
       if (this.dataKind === 'transition' && this.byDate) {
         return {
           lText: lastDayData,
@@ -293,7 +293,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+              return self.$d(getComplementedDate(label), 'date')
             }
           }
         },
