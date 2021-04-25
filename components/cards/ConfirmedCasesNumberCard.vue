@@ -7,7 +7,9 @@
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="$t('人')"
-      :url="'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'"
+      :url="
+        'https://www.pref.nagano.lg.jp/dx-promo/kensei/tokei/johoka/opendata/index.html'
+      "
     />
   </v-col>
 </template>
