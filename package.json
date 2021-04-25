@@ -5,7 +5,7 @@
   "author": "有志一同",
   "private": true,
   "engines": {
-    "node": ">=10.19.0 <13.0.0"
+    "node": ">=10.19.0 "
   },
   "scripts": {
     "cp:data": "./bin/cp_data.sh",
