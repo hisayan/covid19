@@ -11,7 +11,7 @@
         :labels="inspectionsLabels"
         :unit="$t('件.tested')"
         :url="
-          'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'
+          'https://www.pref.nagano.lg.jp/dx-promo/kensei/tokei/johoka/opendata/index.html'
         "
         :data-labels="inspectionsDataItems"
         :table-labels="inspectionsItems"
