@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { NuxtI18nSeo } from 'nuxt-i18n/types/nuxt-i18n'
+import { NuxtI18nSeo } from 'nuxt-i18n/types/vue'
 
 declare module 'vue/types/vue' {
   interface Vue {
