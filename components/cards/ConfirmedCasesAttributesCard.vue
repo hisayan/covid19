@@ -47,12 +47,13 @@ export default {
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
+      const age_ = row['年代'].toString()
 
-      if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substr(0, 2)
+      if (age_.substr(-1, 1) === '代') {
+        const age = age_.substr(0, 2)
         row['年代'] = this.$t('{age}代', { age })
       } else {
-        row['年代'] = this.$t(row['年代'])
+        row['年代'] = this.$t(age_)
       }
     }
 
