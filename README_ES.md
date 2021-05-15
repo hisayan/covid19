@@ -22,7 +22,7 @@ Este software se publica bajo la [licencia MIT](./LICENSE.txt).
 
 ### Cómo Configurar Entornos
 
-- Versión requerida de Node.js: 10.19.0 o superior
+- Versión requerida de Node.js: 14.16.0 o superior
 
 **Use yarn**
 ```bash

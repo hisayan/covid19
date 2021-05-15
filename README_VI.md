@@ -21,7 +21,7 @@ Phần mềm này được phân phối dưới giấy phép [MIT](./LICENSE.txt
 
 ### Xây dựng môi trường
 
-- Node.js phiên bản: 10.19.0 hoặc cao hơn
+- Node.js phiên bản: 14.16.0 hoặc cao hơn
 
 **Nếu dùng yarn**
 ```bash
