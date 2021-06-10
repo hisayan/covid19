@@ -7,7 +7,9 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://www.pref.nagano.lg.jp/joho/kensei/tokei/johoka/opendata/'"
+      :url="
+        'https://www.pref.nagano.lg.jp/dx-promo/kensei/tokei/johoka/opendata/index.html'
+      "
     />
   </v-col>
 </template>
@@ -26,7 +28,7 @@ export default {
   data() {
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
-    const dateAsOf = dayjs(Data.patients.date).format('MM/DD')
+    const dateAsOf = dayjs(Data.patients.date).format('YYYY/MM/DD')
 
     const sumInfoOfPatients = {
       lText: patientsTable.datasets.length.toLocaleString(),
@@ -45,12 +47,13 @@ export default {
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
+      const age_ = row['年代'].toString()
 
-      if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substr(0, 2)
+      if (age_.substr(-1, 1) === '代') {
+        const age = age_.substr(0, 2)
         row['年代'] = this.$t('{age}代', { age })
       } else {
-        row['年代'] = this.$t(row['年代'])
+        row['年代'] = this.$t(age_)
       }
     }
 

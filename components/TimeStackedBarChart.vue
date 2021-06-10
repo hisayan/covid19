@@ -231,14 +231,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       const lastDay = this.labels[this.labels.length - 1]
-      const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
+      const date = this.$d(getDayjsObject(lastDay).toDate(), 'date')
 
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', { date })}`,
           unit: this.unit,
-          lastd: this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear'),
+          lastd: this.$d(getDayjsObject(lastDay).toDate(), 'date'),
           date
         }
       }
@@ -361,7 +361,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+              return self.$d(getComplementedDate(label), 'date')
             }
           }
         },
@@ -408,7 +408,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               time: {
                 unit: 'month',
                 displayFormats: {
-                  month: 'MMM'
+                  month: 'YYYY-MM'
                 }
               }
             }
@@ -524,7 +524,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               type: 'time',
               time: {
-                unit: 'month'
+                unit: 'month',
+                displayFormats: {
+                  month: 'YYYY-MM'
+                }
               }
             }
           ],
